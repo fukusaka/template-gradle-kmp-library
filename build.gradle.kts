@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.7.10"
+    kotlin("multiplatform") version "1.8.10"
     id("maven-publish")
 }
 
@@ -20,10 +20,12 @@ kotlin {
             useJUnitPlatform()
         }
     }
-    js(IR) {
+    js(BOTH) {
         browser {
             commonWebpackConfig {
-                cssSupport.enabled = true
+                cssSupport {
+                    enabled.set(true)
+                }
             }
         }
     }
